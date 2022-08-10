@@ -29,7 +29,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
     'hoperite.herokuapp.com',
-    'hoperite.com'
+    'hoperite.com',
+    'localhost'
 ]
 
 
