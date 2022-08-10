@@ -1,0 +1,1 @@
+web: gunicorn hoperite_proj.wsgi --log-file -
