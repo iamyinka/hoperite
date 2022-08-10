@@ -9,6 +9,7 @@ dj-database-url = "*"
 python-decouple = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 black = "*"
