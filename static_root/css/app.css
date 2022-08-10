@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  /* font-family: 'Bad Script', cursive; */
+  font-family: "Encode Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  height: 100%;
+}
+
+.navbar .navbar-brand {
+  font-family: "Bad Script", cursive;
+  font-weight: bolder;
+}
+
+main,
+section {
+  min-height: 80vh;
+}
+
+.intro {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.57), rgba(10, 10, 10, 0.85)), url("../images/hero-bg.jpg") 100% 80% no-repeat;
+}
