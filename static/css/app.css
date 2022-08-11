@@ -16,7 +16,7 @@ body {
 
 .navbar .navbar-brand {
   font-family: "Bad Script", cursive;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 main,
@@ -26,4 +26,9 @@ section {
 
 .intro {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.57), rgba(10, 10, 10, 0.85)), url("../images/hero-bg.jpg") 100% 80% no-repeat;
+}
+
+.company_name {
+  font-family: "Bad Script", cursive;
+  font-weight: 700;
 }
