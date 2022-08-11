@@ -9,3 +9,7 @@
 ## Posts
 
 - Implement Post Model
+
+## Socials
+
+- Update Social Media handles
