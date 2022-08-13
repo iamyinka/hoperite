@@ -3,9 +3,11 @@ from blogs.models import Post
 
 
 def home(request):
+    featured_post = Post.objects.first()
     posts = Post.objects.all()[:6]
     context = {
-        'posts': posts
+        'posts': posts,
+        'featured_post': featured_post
     }
     return render(request, 'blogs/index.html', context)
 
