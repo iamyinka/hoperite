@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # 'django.contrib.staticfiles',
     'blogs',
     'tinymce',
+    "taggit"
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+TAGGIT_CASE_INSENSITIVE = True
 
 
 # Static files (CSS, JavaScript, Images)

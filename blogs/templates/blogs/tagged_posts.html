@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ post.title|title }}
+All Blog Posts
 {% endblock title %}
 
 {% block content %}
@@ -11,23 +11,28 @@
         <div class="row g-5">
             <div class="col-md-8">
                 <h3 class="pb-4 mb-4 fst-italic border-bottom">
-                    {{ post.title|title }}
+                    Posts related to <small>#{{ tag }}</small>
                 </h3>
 
-                {{ post.content|safe }}
-
-                {% if post.tags.exists %}
-                <p>
-                    <strong>Keywords:</strong> 
-                    {% for tag in post.tags.all %}
-                        <a href="{% url 'tagged_posts' tag %}">#{{ tag }}</a>
+                {% if posts %}
+                    {% for post in posts %}
+                        <article class="blog-post">
+                            <h2 class="blog-post-title">{{ post.title|truncatewords:7 }}</h2>
+                            <p class="blog-post-meta">{{ post.published_at|timesince }} by <a href="#">{{ post.user.get_full_name }}</a></p>
+        
+                            {{ post.content|striptags|truncatewords:25 }}
+                            <a href="{% url 'post_detail' post.slug %}">Read More &RightArrow;</a>
+                            <hr>
+                        </article>
                     {% endfor %}
-                </p>
+                {% else %}
+                    <p>No posts to display</p>
                 {% endif %}
 
+
+
                 <nav class="blog-pagination" aria-label="Pagination">
-                    <a class="btn btn-outline-danger" href="{{ request.META.HTTP_REFERER }}">&laquo; Back</a>
-                    <a class="btn btn-outline-secondary disabled">Newer</a>
+                    <a class="btn btn-outline-primary" href="#">Older</a>
                     <a class="btn btn-outline-secondary disabled">Newer</a>
                 </nav>
 

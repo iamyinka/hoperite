@@ -30,3 +30,13 @@ def post_detail(request, slug):
         'post': post
     }
     return render(request, 'blogs/post_detail.html', context)
+
+
+def tagged_posts(request, tag):
+    if tag != None:
+        posts = Post.objects.filter(tags__name=tag)
+    context = {
+        'tag': tag,
+        'posts': posts
+    }
+    return render(request, 'blogs/tagged_posts.html', context)
