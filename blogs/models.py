@@ -2,7 +2,7 @@ import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.utils.text import slugify
+from tinymce.models import HTMLField
 
 
 class Post(models.Model):
@@ -11,7 +11,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=150, blank=True,
                             null=True, db_index=True, unique=True)
-    content = models.TextField()
+    content = HTMLField()
     published_at = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='posts')
