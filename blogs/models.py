@@ -2,13 +2,15 @@ import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.utils.text import slugify
 
 
 class Post(models.Model):
-    id = models.UUIDField(primary_key=True, db_index=True,
-                          editable=False, default=uuid.uuid4)
+    id = models.UUIDField(primary_key=True, unique=True,
+                          default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255)
-    slug = models.SlugField(blank=True, null=True)
+    slug = models.SlugField(max_length=150, blank=True,
+                            null=True, db_index=True, unique=True)
     content = models.TextField()
     published_at = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(
@@ -21,4 +23,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         self.title = self.title.lower()
-        return super().save(self, *args, **kwargs)
+        return super(Post, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ("-published_at",)
