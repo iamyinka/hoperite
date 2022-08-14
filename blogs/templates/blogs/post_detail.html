@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% block metatitle %}
+<meta name="title" content="HopeRite - {{ post.title }}">
+{% endblock metatitle %}
+
+{% block metakeywords %}
+<meta name="keywords" content="hoperite, hoperite news, nigerian news, hoperite world news, hoperite blogs, hoperite, {{ post.title }}">
+{% endblock metakeywords %}
+
 {% block title %}
     {{ post.title|title }}
 {% endblock title %}
@@ -28,41 +36,12 @@
                 <nav class="blog-pagination" aria-label="Pagination">
                     <a class="btn btn-outline-danger" href="{{ request.META.HTTP_REFERER }}">&laquo; Back</a>
                     <a class="btn btn-outline-secondary disabled">Newer</a>
-                    <a class="btn btn-outline-secondary disabled">Newer</a>
+                    {% comment %} <a class="btn btn-outline-secondary disabled">Newer</a> {% endcomment %}
                 </nav>
 
             </div>
 
-            <div class="col-md-4">
-                <div class="position-sticky" style="top: 2rem;">
-                    <div class="p-4 mb-3 bg-light rounded">
-                        <h4 class="fst-italic">About</h4>
-                        <p class="mb-0">
-                            <span class="company_name">HopeRite.com</span> provides thoughts on the education and lifestyle of the global community. Visitors to our site are positively impacted since thought-provoking contents inspire lofty imagination. Hand in hand we are bridging knowledge across the world.
-                        </p>
-                    </div>
-
-                    <div class="p-4">
-                        <h4 class="fst-italic">Categories</h4>
-                        <ol class="list-unstyled mb-0">
-                            <li><a href="#">Education</a></li>
-                            <li><a href="#">Health</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Relationship</a></li>
-                        </ol>
-                    </div>
-
-                    <div class="p-4">
-                        <h4 class="fst-italic">Elsewhere</h4>
-                        <ol class="list-unstyled">
-                            <li><a href="https://www.youtube.com/channel/UCDCdrBaqeGTaTcgd26v3phw" target="_blank">YouTube</a></li>
-                            <li><a href="https://twitter.com/HoperiteNews" target="_blank">Twitter</a></li>
-                            <li><a href="https://www.facebook.com/hoperiteNews/" target="_blank">Facebook</a></li>
-                            <li><a href="https://pin.it/5UbpF3L" target="_blank">Pinterest</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+            {% include 'blogs/_sidebar.html' with tags=tags %}
         </div>
     </div>
 </section>
